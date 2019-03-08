@@ -22,7 +22,7 @@ const wine = {
 		let time = new Date();
 		console.log(time);
 		
-		Serv.get().then(function(res){
+		Serv.getWine().then(function(res){
 			
 			vm.wine = res.data;
 			console.log(res);

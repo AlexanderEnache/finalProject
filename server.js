@@ -2,11 +2,13 @@
 
 const express = require("express");
 const app = express();
-const route = require("./route.js");
+const wine = require("./wine.js");
+const wiskey = require("./wiskey.js");
 
 app.use(express.static("./public"));
 app.use(express.json());
-app.use("/", route);
+app.use("/", wine);
+app.use("/", wiskey);
 
 const port = process.env.PORT || 7000;
 

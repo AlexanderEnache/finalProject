@@ -3,10 +3,17 @@
 function Serv($http, $location){
   const self = this;
   
-  self.get = function(){
+  self.getWine = function(){
     return $http({
       method:"GET",
-      url: "/route"
+      url: "/wine"
+    });
+  }
+  
+   self.getWiskey = function(){
+    return $http({
+      method:"GET",
+      url: "/wiskey"
     });
   }
   
