@@ -1,15 +1,13 @@
 "use strict";
 
-function AppService($location, $http) {
-    /* const self = this;
-    const key = "eedf1c06de58f06a7c9ebc6354d172fed371000f";
-    const appID = "c471afec";  */   
+const express = require("express");
+const app = express();
 
-    self.Search = function(){  
-        return $http({
-			method: 'GET',
-			url: "http://api.snooth.com/wines/?akey=<your api key>&ip=66.28.234.115&q=napa+cabernet&xp=30"
-		});
-    }
+app.use(express.static("./public"));
+app.use(express.json());
 
-angular.module("App").service("AppService", AppService);
+const port = process.env.PORT || 7000;
+
+app.listen(port, function(){
+	console.log("Server is running.")
+});
