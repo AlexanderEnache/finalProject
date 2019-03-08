@@ -2,11 +2,7 @@
 
 const main = {
 	
-	template: `
-	
-		<h2>main</h2>
-	
-	`
+	templateUrl: "main.html"
 	
 }
 

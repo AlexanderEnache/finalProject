@@ -1,34 +1,38 @@
 <!DOCTYPE html>
-
-<html>
-
-	<head>
-		<title>Document</title>
-	</head>
-
-	<body ng-app = "WW">
+<html lang="en" ng-app = "WW">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<link rel="stylesheet" href="Assets/styles.css">
+</head>
+<body>
 	
-		<h1>Wiskey and Wine</h1>
-		
-		<ng-view></ng-view>
-		
+	<nav>
 		<a href = "#!/wiskey">Wiskey</a>
 		<a href = "#!/wine">Wine</a>
+		<!-- <a href=""><img src="" alt=""></a> -->
 		<a href = "#!/portfolio">Portfolio</a>
 		<a href = "#!/news">News</a>
-		
-		<script src = "https://code.angularjs.org/1.6.5/angular.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-route.js"></script>
-		<script src = "app.module.js"></script>
-		<script src = "app.service.js"></script>
-		<script src = "app.config.js"></script>
-		
-		<script src = "app.main.js"></script>
-		<script src = "app.wiskey.js"></script>
-		<script src = "app.wine.js"></script>
-		<script src = "app.portfolio.js"></script>
-		<script src = "app.news.js"></script>
+	</nav>
+
 	
-	</body>
+	<ng-view></ng-view>
+	
+	
+	
+	<script src = "https://code.angularjs.org/1.6.5/angular.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-route.js"></script>
+	<script src = "app.module.js"></script>
+	<script src = "app.service.js"></script>
+	<script src = "app.config.js"></script>
+	<script src = "app.main.js"></script>
+	<script src = "app.wiskey.js"></script>
+	<script src = "app.wine.js"></script>
+	<script src = "app.portfolio.js"></script>
+	<script src = "app.news.js"></script>
+
+</body>
 
 </html>
