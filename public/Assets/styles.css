@@ -1,0 +1,18 @@
+html {
+    background-color: lightgrey;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+}
+
+.header-bg {
+    width: 100%;
+}
+
+.wine-search-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
