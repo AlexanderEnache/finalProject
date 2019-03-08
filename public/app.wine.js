@@ -5,7 +5,7 @@ const wine = {
 	template: `
 	
 		<h2>wine</h2>
-		<p ng-repeat = "bottle in $ctrl.wine">{{bottle.color}}</p>
+		<p ng-repeat = "bottle in $ctrl.wine">{{bottle.name}}</p>
 	
 	`,
 	
