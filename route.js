@@ -1,13 +1,12 @@
 "use strict";
 
 const express = require("express");
-const colors = express.Router();
-const pool = require("./connection/pg-connection-pool.js");
+const wine = express.Router();
+const pool = require("./connection.js");
 
-function selectAll(req, res) {
-  pool.query("select * from colors order by id asc").then(function(result) {
+  pool.query("select * from wine").then(function(result) {
+	  console.log(result);
     res.send(result.rows);
   });
-}
 
-module.exports = colors;
+module.exports = wine;
