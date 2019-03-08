@@ -12,7 +12,34 @@ nav {
 }
 
 .wine-search-bar {
+    margin-top: 10px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
+
+.wine-price-graph {
+    border: 0px solid;
+    background-color: darksalmon;
+    width: 100%;
+    min-height: 200px;
+}
+
+.price-graph-container {
+    border: 0px solid;
+    width: 100%;
+    min-height: 200px;
+    margin-top:10px;
+}
+
+.price-graph-chooser {
+    display: flex;
+    flex-direction: row;
+}
+
+.price-graph {
+    background-color: darksalmon;
+    width: 100%;
+    min-height: 200px;
+}
+
