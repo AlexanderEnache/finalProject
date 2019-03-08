@@ -5,7 +5,11 @@ const wine = {
 	template: `
 	
 		<h2>wine</h2>
-		<p ng-repeat = "bottle in $ctrl.wine">{{bottle.name}}</p>
+		
+		<div ng-repeat = "bottle in $ctrl.wine">
+			<img src = "{{bottle.image}}">
+			<p>{{bottle.name}}</p>
+		</div>
 	
 	`,
 	
@@ -14,6 +18,9 @@ const wine = {
 		const vm = this;
 		
 		vm.wine = [];
+		
+		let time = new Date();
+		console.log(time);
 		
 		Serv.get().then(function(res){
 			
