@@ -4,7 +4,7 @@ const wiskey = {
 	
 	template: `
 	
-		<h1>wiskey</h1>
+		<h2>wiskey</h2>
 	
 	`
 	

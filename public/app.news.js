@@ -1,13 +1,13 @@
 "use strict";
 
-const portfolio = {
+const news = {
 	
 	template: `
 	
-		<h1>portfolio</h1>
+		<h2>news</h2>
 	
 	`
 	
 }
 
-angular.module("WW").component("portfolio", portfolio);
+angular.module("WW").component("news", news);

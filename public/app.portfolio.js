@@ -4,7 +4,7 @@ const portfolio = {
 	
 	template: `
 	
-		<h1>portfolio</h1>
+		<h2>portfolio</h2>
 	
 	`
 	

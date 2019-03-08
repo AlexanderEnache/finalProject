@@ -4,9 +4,25 @@ const wine = {
 	
 	template: `
 	
-		<h1>wine</h1>
+		<h2>wine</h2>
+		<p ng-repeat = "bottle in $ctrl.wine">{{bottle.color}}</p>
 	
-	`
+	`,
+	
+	controller:["Serv", function(Serv){
+		
+		const vm = this;
+		
+		vm.wine = [];
+		
+		Serv.get().then(function(res){
+			
+			vm.wine = res.data;
+			console.log(res);
+			
+		})
+		
+	}]
 	
 }
 
