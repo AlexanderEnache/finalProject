@@ -6,7 +6,7 @@ const pool = require("./pg-connection-pool.js");
 
 wine.get("/route", function (req, res) {
   pool.query("select * from wine").then(function(result) {
-	  console.log(result);
+	console.log(result);
     res.send(result.rows);
   });
 });
