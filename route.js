@@ -2,7 +2,7 @@
 
 const express = require("express");
 const wine = express.Router();
-const pool = require("./connection.js");
+const pool = require("./pg-connection-pool.js");
 
   pool.query("select * from wine").then(function(result) {
 	  console.log(result);
