@@ -26,21 +26,24 @@ function Serv($http, $location){
   }
   
   self.search = function(keyword) {
-    console.log(keyword + "Service")
-    $location.path("/searchresults")
+    console.log(keyword + "HELLO")
     return $http({
       method: "GET",
       url: `/mainsearch/${keyword}`,
+    }).then(function(response) {
+      self.searchResults = response.data;
+      $location.path("/searchresults");
     });
   }
+
+  
   self.setSearch = function(searchTerm) {
     self.searchTerm = searchTerm
     console.log(self.searchTerm)
   }
   self.searchTerm = []
   self.getSearch = function() {
-    console.log(self.searchTerm)
-    return self.searchTerm
+    return self.searchResults;
   }
 }
 
