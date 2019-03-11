@@ -1,6 +1,6 @@
 <img class="header-bg" src="/Assets/bg.jpg" alt="">
 <section class="wine-search-bar">
-    <div><input type="text"> <button>search</button></div>
+    <form ng-submit="$ctrl.search(keyword)"><input type="text" ng-model="keyword"> <button>search</button></form>
     <div><button>filter</button></div>
 </section>
 

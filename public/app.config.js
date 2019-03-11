@@ -8,6 +8,7 @@ angular.module("WW").config(["$routeProvider", function($routeProvider){
 	.when("/wine", {template: "<wine></wine>"})
 	.when("/portfolio",  {template: "<portfolio></portfolio>"})
 	.when("/news", {template: "<news></news>"})
+	.when("/searchresults", {template: "<searchresults></searchresults>"})
 	.otherwise({redirectTo: "/main"});
 	
 }]);
