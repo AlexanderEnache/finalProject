@@ -1,5 +1,28 @@
 <img class="header-bg" src="/Assets/bg.jpg" alt="">
 <section class="wine-search-bar">
-<div><input type="text"> <button>search</button></div>
-<div><button>filter</button></div>
+    <div><input type="text"> <button>search</button></div>
+    <div><button>filter</button></div>
 </section>
+
+
+<section class="price-graph-container">
+
+
+    <div class="price-graph">
+        <div class="price-graph-chooser">
+
+            <button>Wine</button>
+            <button>Whiskey</button>
+
+        </div>
+        <p>PLACEHOLDER</p>
+    </div>
+</section>
+
+
+		
+<div ng-click="$ctrl.select(bottle, $index)" ng-repeat="bottle in $ctrl.wine track by $index">
+    <focus-bottle bottle="$ctrl.bottle" ng-show="$ctrl.showArray[$index] == true"></focus-bottle>
+
+    <p ng-show="$ctrl.showArray[$index] == false">{{bottle.name}}</p>
+</div>
