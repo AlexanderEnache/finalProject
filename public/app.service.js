@@ -25,6 +25,14 @@ function Serv($http, $location){
 	  return self.Bottle;
   }
   
+  self.search = function(keyword) {
+    console.log(keyword + "Service")
+    $location.path("/searchresults")
+    return $http({
+      method: "GET",
+      url: `/mainsearch/${keyword}`,
+    });
+  }
 }
 
 angular.module("WW").service("Serv", Serv);

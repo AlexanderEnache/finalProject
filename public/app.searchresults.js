@@ -1,8 +1,8 @@
 "use strict";
 
-const main = {
+const searchresults = {
 	
-	templateUrl: "main.html",
+	templateUrl: "searchresults.html",
 	controller:["Serv", function(Serv){
 		
 		const vm = this;
@@ -46,4 +46,4 @@ const main = {
 	
 }
 
-angular.module("WW").component("main", main);
+angular.module("WW").component("searchresults", searchresults);

@@ -11,4 +11,11 @@ wine.get("/wine", function (req, res) {
   });
 });
 
+wine.get("/mainsearch/:searchterm", function (req, res) {
+  pool.query("select * from wine where name like '%"+req.params.searchterm+"%' ").then(function(result) {
+	console.log(result);
+    res.send(result.rows);
+  });
+});
+
 module.exports = wine;
