@@ -17,6 +17,14 @@ function Serv($http, $location){
     });
   }
   
+  self.setFocusedBottle = function(Bottle){
+	  self.Bottle = Bottle;
+  }
+  
+  self.getFocusedBottle = function(){
+	  return self.Bottle;
+  }
+  
 }
 
 angular.module("WW").service("Serv", Serv);
