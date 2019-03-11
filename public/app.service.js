@@ -33,6 +33,15 @@ function Serv($http, $location){
       url: `/mainsearch/${keyword}`,
     });
   }
+  self.setSearch = function(searchTerm) {
+    self.searchTerm = searchTerm
+    console.log(self.searchTerm)
+  }
+  self.searchTerm = []
+  self.getSearch = function() {
+    console.log(self.searchTerm)
+    return self.searchTerm
+  }
 }
 
 angular.module("WW").service("Serv", Serv);

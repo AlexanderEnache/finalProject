@@ -40,6 +40,7 @@ const main = {
 			console.log(keyword)
 			Serv.search(keyword).then(function(res) {
 				console.log(res)
+				Serv.setSearch(res)
 			});
 		};
 	}]

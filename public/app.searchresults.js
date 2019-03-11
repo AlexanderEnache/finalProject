@@ -2,7 +2,7 @@
 
 const searchresults = {
 	
-	templateUrl: "searchresults.html",
+	templateUrl: `searchresults.html`,
 	controller:["Serv", function(Serv){
 		
 		const vm = this;
@@ -11,11 +11,13 @@ const searchresults = {
 		vm.showArray = [];
 		let time = new Date();
 		console.log(time);
-
+		vm.$onInit = function() {
+			vm.searchResults = Serv.getSearch();
+		}
 
 		Serv.getWine().then(function(res){
-			vm.wine = res.data;
-			for(let i = 0; i < vm.wine.length; i++){
+			vm.searchResults = res.data;
+			for(let i = 0; i < vm.searchResults.length; i++){
 				vm.showArray.push(false);
 			}
 			// console.log(res);
