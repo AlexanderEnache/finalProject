@@ -21,7 +21,9 @@
 
 
 <div ng-click="$ctrl.select(bottle, $index)" ng-repeat="bottle in $ctrl.searchResults track by $index">
-  <focus-bottle bottle="$ctrl.bottle" ng-show="$ctrl.showArray[$index] == true"></focus-bottle>
-  <p ng-show="$ctrl.showArray[$index] == false">{{bottle.name}}</p>
-  <button>BUY</button>
+    <focus-bottle bottle="$ctrl.bottle" ng-show="$ctrl.showArray[$index] == true"></focus-bottle>
+    <p ng-show="$ctrl.showArray[$index] == false">{{bottle.name}}</p>
+    <button ng-click="$ctrl.buy(bottle, quantity)">BUY</button>
+    <input ng-model="quantity" type="number">
 </div>
+<wallet></wallet>

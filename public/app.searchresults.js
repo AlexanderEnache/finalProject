@@ -65,7 +65,9 @@ const searchresults = {
         
         };
 
-            
+        vm.buy = function(id, quantity) {
+			Serv.buy(id, quantity)
+		};
         
 
     }]

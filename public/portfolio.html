@@ -20,6 +20,9 @@
     <p>{{item.bottle.id}}</p>
     <p>{{item.bottle.name}}</p>
     <p>Quantity: {{item.quantity}}</p>
+    <p>{{item.bottle.price | currency}}</p>
     
-    <button>SELL</button>
+    <button ng-click="$ctrl.sell(item.bottle, quantity)">SELL</button>
+    <input ng-model="quantity" type="number">
+
 </div>

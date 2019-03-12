@@ -48,6 +48,17 @@ nav {
 	background-color: white;
 }
 
+.wallet-container {
+    border: 0px solid;
+    background-color: aquamarine;
+    width: 100px;
+    height: 100px;
+    z-index: 400;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+}
+
 
 
 

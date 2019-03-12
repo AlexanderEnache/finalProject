@@ -18,7 +18,7 @@ const main = {
 			// console.log(res);
 		});
 		vm.select = function(bottle, index){
-
+			console.log("kappa")
 			for(let i = 0; i < vm.showArray.length; i++){
 				vm.showArray[i] = false;
 			}
@@ -38,10 +38,15 @@ const main = {
 			Serv.search(keyword);
 			//$location.path("/searchresults");
 		};
+		vm.wallet = Serv.getCredits()
 
 		vm.buy = function(id, quantity) {
-			Serv.buy(id, quantity)
+			console.log("kappa kappa")
+			Serv.buy(id, quantity);
+			vm.wallet = Serv.getCredits()
+			console.log()
 		};
+
 
 	}]
 	

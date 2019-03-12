@@ -12,7 +12,7 @@ const focusBottle = {
 	
 		<h4>{{$ctrl.bottle.name}}</h4>
 		
-		<p>Stats</p>
+		<p>{{$ctrl.bottle.price | currency}}</p>
 		<p>Stats</p>
 		<p>Stats</p>
 		<p>Stats</p>
