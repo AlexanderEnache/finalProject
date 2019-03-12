@@ -3,15 +3,12 @@
 const main = {
 	
 	templateUrl: "main.html",
-	controller:["Serv", function(Serv){
+	controller:["Serv", "$location", function(Serv, $location){
 		
 		const vm = this;
 		vm.show = false;
 		vm.wine = [];
 		vm.showArray = [];
-		let time = new Date();
-		console.log(time);
-
 
 		Serv.getWine().then(function(res){
 			vm.wine = res.data;
@@ -39,6 +36,7 @@ const main = {
 		vm.search = function(keyword) {
 			console.log(keyword)
 			Serv.search(keyword);
+			//$location.path("/searchresults");
 		};
 	}]
 	

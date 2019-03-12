@@ -25,11 +25,6 @@ const focusBottle = {
 		
 		const vm = this;
 		
-		console.log(vm.bottle);
-		
-		let time = new Date();
-		console.log(time);
-		
 	}]
 	
 }

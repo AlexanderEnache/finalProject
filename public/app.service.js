@@ -32,16 +32,17 @@ function Serv($http, $location){
       url: `/mainsearch/${keyword}`,
     }).then(function(response) {
       self.searchResults = response.data;
+      console.log(self.searchResults)
       $location.path("/searchresults");
+      return response.data;
     });
   }
-
   
-  self.setSearch = function(searchTerm) {
-    self.searchTerm = searchTerm
-    console.log(self.searchTerm)
-  }
-  self.searchTerm = []
+  // self.setSearch = function(searchTerm) {
+  //   self.searchTerm = searchTerm
+  //   console.log(self.searchTerm)
+  // }
+  // self.searchTerm = []
   self.getSearch = function() {
     return self.searchResults;
   }

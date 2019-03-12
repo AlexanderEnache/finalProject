@@ -3,49 +3,67 @@
 const searchresults = {
 
     templateUrl: `searchresults.html`,
-    controller: ["Serv", function (Serv) {
+    controller: ["$location", "Serv", function ($location, Serv) {
 
         const vm = this;
         vm.show = false;
         vm.wine = [];
         vm.showArray = [];
-        let time = new Date();
-        console.log(time);
-        // vm.$onInit = function () {
+        vm.$onInit = function () {
             vm.searchResults = Serv.getSearch();
             console.log(vm.searchResults);
-        // }
+            // vm.searchResults = res.data;
+            for (let i = 0; i < vm.searchResults.length; i++) {
+                vm.showArray.push(false);
+            }
+        }
 
         // Serv.getWine().then(function (res) {
-        //     vm.searchResults = res.data;
-        //     for (let i = 0; i < vm.searchResults.length; i++) {
-        //         vm.showArray.push(false);
-        //     }
+      
         //     // console.log(res);
         // });
-        // vm.select = function (bottle, index) {
+        vm.select = function (bottle, index) {
 
-        //     for (let i = 0; i < vm.showArray.length; i++) {
-        //         vm.showArray[i] = false;
-        //     }
+            for (let i = 0; i < vm.showArray.length; i++) {
+                vm.showArray[i] = false;
+            }
 
-        //     vm.showArray[index] = true;
+            vm.showArray[index] = true;
 
-        //     if (bottle) {
-        //         vm.show = true;
-        //         vm.bottle = bottle;
-        //     } else {
-        //         vm.show = false;
-        //     }
+            if (bottle) {
+                vm.show = true;
+                vm.bottle = bottle;
+            } else {
+                vm.show = false;
+            }
 
-        // }
-        // vm.search = function (keyword) {
-        //     console.log(keyword)
-        //     Serv.search(keyword).then(function (res) {
-                
-        //         console.log(res.data)
-        //     });
-        // };
+        }
+        vm.search = function(keyword) {
+
+            Serv.search(keyword).then(function(res){
+                vm.searchResults = res;
+                console.log(res);
+            });
+
+            // console.log(keyword);
+
+            // vm.searchResults = Serv.getSearch();
+
+            // console.log(vm.searchResults);
+
+            // vm.showArray = [];
+
+            // for (let i = 0; i < vm.searchResults.length; i++) {
+            //        vm.showArray.push(false);
+            // }
+            // //$location.path("/searchresults");
+            // console.log(vm.searchResults);
+        
+        };
+
+            
+        
+
     }]
 
 }
