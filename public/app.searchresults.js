@@ -43,6 +43,10 @@ const searchresults = {
             Serv.search(keyword).then(function(res){
                 vm.searchResults = res;
                 console.log(res);
+                
+            for (let i = 0; i < vm.searchResults.length; i++) {
+                   vm.showArray.push(false);
+            }
             });
 
             // console.log(keyword);

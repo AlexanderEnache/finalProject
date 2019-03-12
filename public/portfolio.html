@@ -1,0 +1,25 @@
+<section class="price-graph-container">
+
+
+    <div class="price-graph">
+        <div class="price-graph-chooser">
+
+            
+
+
+        </div>
+        <p>PORTFOLIO</p>
+    </div>
+</section>
+
+
+		
+<div ng-click="$ctrl.select(bottle, $index)" ng-repeat="item in $ctrl.bought track by $index">
+    <focus-bottle bottle="$ctrl.bottle" ng-show="$ctrl.showArray[$index] == true"></focus-bottle>
+    <!-- <p ng-show="$ctrl.showArray[$index] == false">{{bottle.id}}</p> -->
+    <p>{{item.bottle.id}}</p>
+    <p>{{item.bottle.name}}</p>
+    <p>Quantity: {{item.quantity}}</p>
+    
+    <button>SELL</button>
+</div>

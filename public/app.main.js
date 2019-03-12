@@ -38,6 +38,11 @@ const main = {
 			Serv.search(keyword);
 			//$location.path("/searchresults");
 		};
+
+		vm.buy = function(id, quantity) {
+			Serv.buy(id, quantity)
+		};
+
 	}]
 	
 }

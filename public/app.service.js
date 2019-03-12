@@ -2,7 +2,9 @@
 
 function Serv($http, $location){
   const self = this;
-  
+  self.credits = 10000;
+  self.bought = [];
+
   self.getWine = function(){
     return $http({
       method:"GET",
@@ -36,8 +38,7 @@ function Serv($http, $location){
       $location.path("/searchresults");
       return response.data;
     });
-  }
-  
+  }  
   // self.setSearch = function(searchTerm) {
   //   self.searchTerm = searchTerm
   //   console.log(self.searchTerm)
@@ -46,6 +47,30 @@ function Serv($http, $location){
   self.getSearch = function() {
     return self.searchResults;
   }
+
+  self.getCredits = function() {
+    return self.credits;
+  }
+
+  self.setCredits = function(credits) {
+    self.credits = credits;
+  }
+  self.buy = function(bottle, quantity) {
+    for (let i = 0; i < self.bought.length; i++) {
+      if (self.bought[i].bottle.id == bottle.id) {
+        self.bought[i].quantity += quantity
+        console.log(self.bought)
+        return;
+      } 
+    }
+    console.log(bottle.id + "YO SUP");
+    self.bought.push({bottle: bottle, quantity: quantity})
+    console.log(self.bought);
+  }
+  self.getBought = function() {
+    return self.bought;
+  }
+
 }
 
 angular.module("WW").service("Serv", Serv);
