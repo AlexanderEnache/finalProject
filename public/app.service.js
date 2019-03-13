@@ -1,6 +1,6 @@
 "use strict";
 
-function Serv($http, $location){
+function Serv($http, $location, $interval){
   const self = this;
   self.credits = 10000;
   self.bought = [];
@@ -89,6 +89,18 @@ function Serv($http, $location){
         return;
       } 
     }
+  }
+  $interval(function(){self.callAtInterval()}, 5000);
+  self.callAtInterval = function($interval) {
+    // for (let i = 1; i < 133; i++) {
+      return $http({
+        method:"GET",
+        url: `/winesearch/129`
+      }).then(function(res){
+        console.log(res.data)
+      });
+    // }
+    console.log("interval")
   }
 
 }
