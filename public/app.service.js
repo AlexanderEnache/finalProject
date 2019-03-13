@@ -5,17 +5,18 @@ function Serv($http, $location){
   self.credits = 10000;
   self.bought = [];
 
-  self.getWine = function(){
+  self.getWine = function(loadmore){
+    console.log(loadmore)
     return $http({
       method:"GET",
-      url: "/wine"
+      url: `/wine/${loadmore}`
     });
   }
   
-   self.getWiskey = function(){
+   self.getWiskey = function(loadmore){
     return $http({
       method:"GET",
-      url: "/wiskey"
+      url: `/wiskey/${loadmore}`
     });
   }
   

@@ -10,13 +10,26 @@ const main = {
 		vm.wine = [];
 		vm.showArray = [];
 
-		Serv.getWine().then(function(res){
+		Serv.getWine(10).then(function(res){
 			vm.wine = res.data;
 			for(let i = 0; i < vm.wine.length; i++){
 				vm.showArray.push(false);
 			}
 			// console.log(res);
 		});
+		vm.ooo = 10;
+		vm.load = function(){
+			
+			vm.ooo = vm.ooo + 5;
+			Serv.getWine(vm.ooo).then(function(res){
+				vm.wine = res.data;
+				for(let i = 0; i < vm.wine.length; i++){
+					vm.showArray.push(false);
+				}
+				// console.log(res);
+			});
+		}
+
 		vm.select = function(bottle, index){
 			console.log("kappa")
 			for(let i = 0; i < vm.showArray.length; i++){
