@@ -52,14 +52,19 @@ function Serv($http, $location){
     return self.credits;
   }
 
-  self.setCredits = function(credits) {
-    self.credits = credits;
-  }
+  
+  // self.setCredits = function(credits) {
+  //   self.credits = 10000;
+  // }
   self.buy = function(bottle, quantity) {
     for (let i = 0; i < self.bought.length; i++) {
       if (self.bought[i].bottle.id == bottle.id) {
-        self.bought[i].quantity += quantity
+        self.bought[i].quantity += quantity;
+        self.credits -= self.bought[i].bottle.price * quantity
         console.log(self.bought)
+
+        console.log(self.credits)
+
         return;
       } 
     }
@@ -69,6 +74,22 @@ function Serv($http, $location){
   }
   self.getBought = function() {
     return self.bought;
+  }
+
+  self.sell = function(bottle, quantity){
+    console.log(bottle, quantity)
+    
+    for (let i = 0; i < self.bought.length; i++) {
+      if (self.bought[i].bottle.id == bottle.id) {
+        self.bought[i].quantity -= quantity
+        console.log(self.bought)
+        if (self.bought[i].quantity <= 0) {
+          self.bought.splice(i, 1);
+          console.log(self.bought)
+        }
+        return;
+      } 
+    }
   }
 
 }

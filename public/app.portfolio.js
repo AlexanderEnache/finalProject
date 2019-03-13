@@ -7,7 +7,11 @@ const portfolio = {
 	controller: ["Serv", function(Serv){
 		const vm = this;
 		vm.bought = Serv.getBought();
-		console.log(vm.bought)
+		console.log(vm.bought);
+
+		vm.sell = function(bottle, quantity) {
+			Serv.sell(bottle, quantity)
+		}
 	}]
 	
 };
