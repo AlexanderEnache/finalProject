@@ -20,6 +20,7 @@ const portfolio = {
 		
 		vm.sell = function(bottle, quantity) {
 			Serv.sell(bottle, quantity)
+			vm.wallet = Serv.getCredits();
 		}
 	}]
 	
