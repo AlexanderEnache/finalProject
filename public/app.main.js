@@ -41,10 +41,8 @@ const main = {
 		vm.wallet = Serv.getCredits()
 
 		vm.buy = function(id, quantity) {
-			console.log("kappa kappa")
 			Serv.buy(id, quantity);
 			vm.wallet = Serv.getCredits()
-			console.log()
 		};
 
 

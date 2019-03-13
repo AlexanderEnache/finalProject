@@ -6,9 +6,18 @@ const portfolio = {
 	templateUrl:"portfolio.html",
 	controller: ["Serv", function(Serv){
 		const vm = this;
+		
+		vm.wallet = Serv.getCredits();
+		console.log(vm.wallet);
+		
 		vm.bought = Serv.getBought();
 		console.log(vm.bought);
 
+		vm.buy = function(id, quantity) {
+			Serv.buy(id, quantity);
+			vm.wallet = Serv.getCredits()
+		};
+		
 		vm.sell = function(bottle, quantity) {
 			Serv.sell(bottle, quantity)
 		}

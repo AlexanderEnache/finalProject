@@ -54,11 +54,13 @@ function Serv($http, $location){
   self.buy = function(bottle, quantity) {
     for (let i = 0; i < self.bought.length; i++) {
       if (self.bought[i].bottle.id == bottle.id) {
+		  console.log("Bought");
         self.bought[i].quantity += quantity;
         self.credits -= self.bought[i].bottle.price * quantity;
         return;
       } 
     }
+	console.log("Bought");
     self.bought.push({bottle: bottle, quantity: quantity})
     console.log(bottle.price + " " + quantity)
     self.credits -= bottle.price * quantity;

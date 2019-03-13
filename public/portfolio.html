@@ -22,7 +22,10 @@
     <p>Quantity: {{item.quantity}}</p>
     <p>{{item.bottle.price | currency}}</p>
     
+	<button ng-click="$ctrl.buy(item.bottle, quantity)">BUY</button>
     <button ng-click="$ctrl.sell(item.bottle, quantity)">SELL</button>
     <input ng-model="quantity" type="number">
+	
+	<wallet wallet="$ctrl.wallet"></wallet>
 
 </div>
