@@ -75,15 +75,14 @@ function Serv($http, $location){
     for (let i = 0; i < self.bought.length; i++) {
       if (self.bought[i].bottle.id == bottle.id) {
 		  
-		   if (self.bought[i].quantity <= quantity) {
-			   quantity = self.bought[i].quantity;
-			   self.bought[i].quantity = 0;
-			   self.credits += bottle.price * quantity;
+		   if (quantity >= self.bought[i].quantity) {
+			   self.credits += bottle.price * self.bought[i].quantity;
                self.bought.splice(i, 1);
-			   conso
+			   console.log(self.bought)
         	   return;
             }
-		  
+		 
+		 console.log(self.bought)
         self.bought[i].quantity -= quantity
 		self.credits += bottle.price * quantity;
         return;
