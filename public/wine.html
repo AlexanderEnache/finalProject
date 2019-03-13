@@ -1,0 +1,25 @@
+<h2>wine</h2>
+
+		
+<section class="wine-listings-container">
+
+    <div class="bottle-listing" ng-repeat = "bottle in $ctrl.wine">
+        <p>{{bottle.name}}</p>
+        <p>{{bottle.price | currency}}</p>
+
+        <section class="wine-buy-container">
+
+            <button ng-click="$ctrl.buy(bottle, quantity)">BUY</button>
+            <input ng-model="quantity" type="number">
+
+        </section>
+        <img class="wine-listing-img" src = "{{bottle.image}}">
+
+       
+        
+    </div>
+
+</section>
+<button ng-click="$ctrl.load()">LOAD MORE</button>
+
+<wallet wallet="$ctrl.wallet"></wallet>

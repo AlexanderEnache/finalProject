@@ -2,16 +2,7 @@
 
 const wiskey = {
 	
-	template: `
-	
-		<h2>wiskey</h2>
-		
-		<div ng-repeat = "bottle in $ctrl.wiskey">
-			<img src = "{{bottle.image}}">
-			<p>{{bottle.name}}</p>
-		</div>
-	
-	`,
+	templateUrl: "whiskey.html",
 	
 	controller:["Serv", function(Serv){
 		
@@ -22,12 +13,32 @@ const wiskey = {
 		let time = new Date();
 		console.log(time);
 		
-		Serv.getWiskey().then(function(res){
+		Serv.getWiskey(10).then(function(res){
 			
 			vm.wiskey = res.data;
 			console.log(res);
 			
-		})
+		});
+
+		vm.ooo = 10;
+		vm.load = function(){
+			
+			vm.ooo = vm.ooo + 5;
+			Serv.getWiskey(vm.ooo).then(function(res){
+				vm.wiskey = res.data;
+				for(let i = 0; i < vm.wiskey.length; i++){
+					vm.showArray.push(false);
+				}
+				// console.log(res);
+			});
+		}
+		
+		vm.wallet = Serv.getCredits();
+		
+		vm.buy = function(id, quantity) {
+			Serv.buy(id, quantity);
+			vm.wallet = Serv.getCredits()
+		};
 		
 	}]
 	

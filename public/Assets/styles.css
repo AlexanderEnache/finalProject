@@ -52,14 +52,74 @@ nav {
     border: 0px solid;
     background-color: aquamarine;
     width: 100px;
-    height: 100px;
+    height: 50px;
     z-index: 400;
     position: fixed;
     right: 0;
     bottom: 0;
+   
+}
+
+.whiskey-listings-container {
+
+    display: flex;
+    flex-direction: column;
+
+}
+
+.bottle-listing {
+    border: 0px solid;
+    /* background-color: azure; */
+    max-width: 500px;
+    max-height: 200px;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    margin:20px;
+}
+
+.whiskey-listing-img {
+    border: 0px solid;
+    max-height: 175px;
+    margin-left: 20px;
+}
+
+.whiskey-buy-container {
+    display: flex;
+    flex-direction: column-reverse;
+    flex-wrap: wrap;
 }
 
 
+.wine-listings-container {
+
+    display: flex;
+    flex-direction: column;
+
+}
+
+.bottle-listing {
+    border: 0px solid;
+    /* background-color: azure; */
+    max-width: 500px;
+    max-height: 200px;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    margin:20px;
+}
+
+.wine-listing-img {
+    border: 0px solid;
+    max-height: 175px;
+    margin-left: 20px;
+}
+
+.wine-buy-container {
+    display: flex;
+    flex-direction: column-reverse;
+    flex-wrap: wrap;
+}
 
 
 

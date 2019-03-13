@@ -5,17 +5,18 @@ function Serv($http, $location){
   self.credits = 10000;
   self.bought = [];
 
-  self.getWine = function(){
+  self.getWine = function(loadmore){
+    console.log(loadmore)
     return $http({
       method:"GET",
-      url: "/wine"
+      url: `/wine/${loadmore}`
     });
   }
   
-   self.getWiskey = function(){
+   self.getWiskey = function(loadmore){
     return $http({
       method:"GET",
-      url: "/wiskey"
+      url: `/wiskey/${loadmore}`
     });
   }
   
@@ -74,12 +75,17 @@ function Serv($http, $location){
     
     for (let i = 0; i < self.bought.length; i++) {
       if (self.bought[i].bottle.id == bottle.id) {
+		  
+		   if (quantity >= self.bought[i].quantity) {
+			   self.credits += bottle.price * self.bought[i].quantity;
+               self.bought.splice(i, 1);
+			   console.log(self.bought)
+        	   return;
+            }
+		 
+		 console.log(self.bought)
         self.bought[i].quantity -= quantity
-        console.log(self.bought)
-        if (self.bought[i].quantity <= 0) {
-          self.bought.splice(i, 1);
-          console.log(self.bought)
-        }
+		self.credits += bottle.price * quantity;
         return;
       } 
     }
