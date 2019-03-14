@@ -18,7 +18,7 @@ const focusBottle = {
 		<p>Stats</p>
 		
 <canvas id="line" class="chart chart-line" chart-data="data"
-chart-labels="labels" chart-series="series" chart-click="onClick">
+chart-labels="labels" chart-series="series" chart-options="options" chart-click="onClick">
 </canvas>
 	<div>
 
@@ -35,6 +35,11 @@ chart-labels="labels" chart-series="series" chart-click="onClick">
 		$scope.data = [
 			[28, 48, 40, 19, 86, 27, 69]
 		];
+		$scope.options = {
+			animation: {
+       			duration: 0
+  			}
+		}
 
 		// $interval(callAtInterval, 5000);
 		// function callAtInterval() {
