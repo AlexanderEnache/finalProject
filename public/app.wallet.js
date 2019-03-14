@@ -11,7 +11,6 @@ const wallet = {
 	controller:["Serv", function(Serv){
 		
         const vm = this;
-        
 		
 	}]
 	

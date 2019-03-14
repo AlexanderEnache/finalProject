@@ -1,3 +1,3 @@
 "use strict";
 
-angular.module("WW", ["ngRoute"]);
+angular.module("WW", ["ngRoute", "chart.js"]);
