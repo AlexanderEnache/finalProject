@@ -91,16 +91,49 @@ function Serv($http, $location, $interval){
     }
   }
   $interval(function(){self.callAtInterval()}, 5000);
+  self.str = "23";
+  self.nextprice;
   self.callAtInterval = function($interval) {
-    // for (let i = 1; i < 133; i++) {
-      return $http({
+    for (let i = 1; i <= 80; i++) {
+      $http({
         method:"GET",
-        url: `/winesearch/129`
+        url: `/winesearch/` + i,
       }).then(function(res){
-        console.log(res.data)
+        console.log(res.data[0].pricedate)
+        self.str = res.data[0].pricedate + ',' + self.setPrice(Number(self.getLast(res.data[0].pricedate)));
+        console.log(self.str);
       });
-    // }
-    console.log("interval")
+      $http({
+        method:"PUT",
+        url: `/winesearch/` + i,
+        data: {newprice: self.str}
+      }).then(function(res){
+        console.log(self.str);
+        //console.log(res)
+      });
+      $http({
+        method:"GET",
+        url: `/winesearch/` + i,
+      }).then(function(res){
+        console.log(res.data[0].pricedate)
+      });
+    }
+  }
+
+  self.setPrice = function(initPrice) {
+    return String(initPrice + initPrice/100);
+  }
+
+  self.getLast = function(str) {
+    let st = "";
+   for(let i = str.length - 1; i >= 0; i--){
+     if(str[i] == ","){
+       console.log(st);
+       return st;
+     }
+     st = str[i] + st;
+   }
+   return st;
   }
 
 }
