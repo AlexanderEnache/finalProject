@@ -92,6 +92,7 @@ function Serv($http, $location, $interval){
   }
   $interval(function(){self.callAtInterval()}, 5000);
   self.str = "23";
+  self.price;
   self.nextprice;
   self.callAtInterval = function($interval) {
     for (let i = 1; i <= 80; i++) {
@@ -101,12 +102,13 @@ function Serv($http, $location, $interval){
       }).then(function(res){
         console.log(res.data[0].pricedate)
         self.str = res.data[0].pricedate + ',' + self.setPrice(Number(self.getLast(res.data[0].pricedate)));
+        self.price = Math.floor(Number(self.getLast(res.data[0].pricedate)));
         console.log(self.str);
       });
       $http({
         method:"PUT",
         url: `/winesearch/` + i,
-        data: {newprice: self.str}
+        data: {newprice: self.str, price: self.price}
       }).then(function(res){
         console.log(self.str);
         //console.log(res)

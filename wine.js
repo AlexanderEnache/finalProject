@@ -29,7 +29,7 @@ wine.get("/winesearch/:id", function (req, res) {
 
 wine.put("/winesearch/:id", function (req, res) {
   console.log(req.params.id + "fgh")
-  pool.query(`update allofit set pricedate = $1::text where id=${req.params.id}`, [req.body.newprice]).then(function(result) {
+  pool.query(`update allofit set pricedate = $1::text , price=$2::int where id=${req.params.id}`, [req.body.newprice, req.body.price]).then(function(result) {
 	console.log(result);
     res.send(result.rows);
   });

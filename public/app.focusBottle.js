@@ -17,14 +17,22 @@ const focusBottle = {
 		<p>Stats</p>
 		<p>Stats</p>
 		
+<canvas id="line" class="chart chart-line" chart-data="data"
+chart-labels="labels" chart-series="series" chart-click="onClick">
+</canvas>
 	<div>
+
 	
 	`,
 	
-	controller:["Serv", function(Serv){
+	controller:["Serv", "$scope", function(Serv, $scope){
 		
 		const vm = this;
-		
+		$scope.labels = ["January", "February", "March", "April", "May", "June", "July"];
+ 		$scope.series ='Series B';
+  	$scope.data = [
+			[28, 48, 40, 19, 86, 27, 69]
+  	];
 	}]
 	
 }

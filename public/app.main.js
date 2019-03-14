@@ -62,11 +62,7 @@ const main = {
 		
 		
 		
-$scope.labels = ["January", "February", "March", "April", "May", "June", "July"];
- $scope.series ='Series B';
-  $scope.data = [
-    [28, 48, 40, 19, 86, 27, 69]
-  ];
+
   /* $scope.onClick = function (points, evt) {
     console.log(points, evt);
   }; */
