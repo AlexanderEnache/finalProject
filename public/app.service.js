@@ -40,11 +40,7 @@ function Serv($http, $location, $interval){
       return response.data;
     });
   }  
-  // self.setSearch = function(searchTerm) {
-  //   self.searchTerm = searchTerm
-  //   console.log(self.searchTerm)
-  // }
-  // self.searchTerm = []
+
   self.getSearch = function() {
     return self.searchResults;
   }
@@ -83,7 +79,7 @@ function Serv($http, $location, $interval){
         	   return;
             }
 		 
-		 console.log(self.bought)
+		//  console.log(self.bought)
         self.bought[i].quantity -= quantity
 		self.credits += bottle.price * quantity;
         return;
@@ -100,24 +96,24 @@ function Serv($http, $location, $interval){
         method:"GET",
         url: `/winesearch/` + i,
       }).then(function(res){
-        console.log(res.data[0].pricedate)
+        // console.log(res.data[0].pricedate)
         self.str = res.data[0].pricedate + ',' + self.setPrice(Number(self.getLast(res.data[0].pricedate)));
         self.price = Math.floor(Number(self.getLast(res.data[0].pricedate)));
-        console.log(self.str);
+        // console.log(self.str);
       });
       $http({
         method:"PUT",
         url: `/winesearch/` + i,
         data: {newprice: self.str, price: self.price}
       }).then(function(res){
-        console.log(self.str);
+        // console.log(self.str);
         //console.log(res)
       });
       $http({
         method:"GET",
         url: `/winesearch/` + i,
       }).then(function(res){
-        console.log(res.data[0].pricedate)
+        // console.log(res.data[0].pricedate)
       });
     }
   }
@@ -130,14 +126,26 @@ function Serv($http, $location, $interval){
     let st = "";
    for(let i = str.length - 1; i >= 0; i--){
      if(str[i] == ","){
-       console.log(st);
+      //  console.log(st);
        return st;
      }
      st = str[i] + st;
    }
    return st;
   }
-
+  
+self.refreshGraph = function(i) {
+  return $http({
+    method:"GET",
+    url: `/winesearch/` + i,
+  }).then(function(res){
+    console.log(res.data[0].pricedate)
+    self.str = res.data[0].pricedate + ',' + self.setPrice(Number(self.getLast(res.data[0].pricedate)));
+    self.price = Math.floor(Number(self.getLast(res.data[0].pricedate)));
+        // console.log(self.str);
+        return res;
+  });
+}
 }
 
 angular.module("WW").service("Serv", Serv);
