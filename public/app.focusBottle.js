@@ -43,34 +43,38 @@ chart-labels="labels" chart-series="series" chart-options="options" chart-click=
   			}
 		}
 
-		// $interval(callAtInterval, 5000);
-		// function callAtInterval() {
-		// 	Serv.refreshGraph(79).then(function (res) {
-		// 		console.log(res.data)
-		// 		let st = "";
-		// 		for (let i = 0; i < res.data[0].pricedate.length; i++) {
-		// 			if (res.data[0].pricedate[i] == ",") {
-		// 				vm.dataArray.push(Math.floor(Math.random()*20+1));
-		// 				vm.labelArray.push("feb");
-		// 				$scope.labels = vm.labelArray;
-		// 				$scope.data = [ vm.dataArray ];
-		// 				console.log(res.data[0].pricedate)
-		// 				console.log(vm.dataArray);
-		// 			}
-		// 			st = st + res.data[0].pricedate[i];
-		// 		}
+		$interval(callAtInterval, 5000);
+		function callAtInterval() {
+		vm.dataArray = [];
+		vm.labelArray= [];
+			Serv.refreshGraph(79).then(function (res) {
+				console.log(res.data)
+				let st = "";
+				for (let i = 0; i < res.data[0].pricedate.length; i++) {
+					if (res.data[0].pricedate[i] == ",") {
+						vm.dataArray.push(Number(st));
+						st = "";
+						vm.labelArray.push("feb");
+						$scope.labels = vm.labelArray;
+						$scope.data = [ vm.dataArray ];
+						console.log(res.data[0].pricedate)
+						console.log(vm.dataArray);
+					}else{
+						st = st + res.data[0].pricedate[i];
+					}
+				}
 
 
-		// 	})
-		// }
+			})
+		}
 
-		$interval(callAtInterval, 500);
+		/* $interval(callAtInterval, 500);
 		function callAtInterval() {
 			vm.dataArray.push(Math.floor(Math.random()*20+1));
 			vm.labelArray.push("feb");
 			$scope.labels = vm.labelArray;
 			$scope.data = [ vm.dataArray ];
-		}
+		} */
 
 
 	}]
