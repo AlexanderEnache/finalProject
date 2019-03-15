@@ -1,15 +1,76 @@
 
 html {
     background-color: white;
+    font-family: Questrial;
 }
 
+.text-align-h4 {
+    text-align: center;
+}
+
+.header-whisker {
+    font-family: Cardo;
+    font-size: 3em;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header-wine {
+    font-family: Cardo;
+    font-size: 3em;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input {
+    border: 0;
+    outline: 0;
+    background: transparent;
+    border-bottom: 1px solid rgba(0,0,0,.5);
+    font-family: Questrial;
+    text-align: center;
+}
+button {
+    width: 80px;
+    border: 1px solid rgba(0,0,0,.3);
+    background-color: white;
+    padding: 5px;
+    border-radius: 20px;
+    font-family: Questrial;
+
+}
 nav {
     display: flex;
     justify-content: space-around;
+    align-items: center;
+    /* font-family: Cardo; */
+    font-weight: bold;
+    height: 40px;
+    /* margin-bottom: 10px; */
+    /* margin-top: 5px; */
+    width: 100%;
+    background-color: rgba(255,255,255,.7);
+    position: fixed;
+    top: 0px;
+    z-index: 1;
+}
+
+
+
+
+a {
+    text-decoration: none;
+    color: black;
 }
 
 .header-bg {
     width: 100%;
+    position: relative;
+    top: -10px;
 }
 
 .wine-search-bar {
@@ -39,15 +100,21 @@ nav {
 }
 
 .price-graph {
-    background-color: darksalmon;
+    background-color: lightgray;
     width: 100%;
     min-height: 200px;
 }
 
 .focusBottle {
-	background-color: white;
+    background-color: white;
+    width:100vw;
+    padding: 10px;
 }
 
+.focusBottle > p{
+    margin:20px
+  
+}
 .wallet-container {
     border: 0px solid;
     background-color: aquamarine;
@@ -76,6 +143,7 @@ nav {
     flex-direction: row-reverse;
     justify-content: space-between;
     margin:20px;
+    
 }
 
 .whiskey-listing-img {
@@ -122,5 +190,95 @@ nav {
 }
 
 
+.repeated-items {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.repeated-items hr {
+    height: 1px;
+    color: rgba(0,0,0,.5);
+    background-color: rgba(0,0,0,.5);
+    border: none;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+/* ==================================== */
+
+@media only screen and (min-width: 480px) {
+    .canvas-container {
+        max-width: 95%;
+    }
+
+    .header-bg-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+    }
+    .repeater-main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+
+    }
+    .repeated-items {
+        display: flex;
+        flex-direction: row;
+        width: 90%;
+        justify-content: space-between;
+    }
+
+    .repeated-items p {
+        display: flex;
+        flex-direction: row;
+        /* width: 75%; */
+        /* justify-content: flex-start; */
+    }
+    .repeated-items hr {
+display: none;
+    }
+    .text-align-h4 {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .focusBottle {
+        /* background-color: white; */
+        width:55vw;
+        /* padding: 10px; */
+    }
+    .buy-container {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .buy-container * {
+        margin-bottom: 20px;
+    }
+
+  }
 
 
+
+
+
+
+
+
+
+
+/* ==================================== */
+  @media only screen and (min-width: 750px) {
+    .canvas-container {
+        max-width: 95%;
+    }
+  }
