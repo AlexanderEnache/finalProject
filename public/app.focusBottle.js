@@ -10,17 +10,19 @@ const focusBottle = {
 	
 	<div class = "focusBottle">
 	
-		<h4>{{$ctrl.bottle.name}}</h4>
+		<h4 class="text-align-h4">{{$ctrl.bottle.name}}</h4>
 		
 		<p>{{$ctrl.bottle.price | currency}}</p>
 		<p>Stats</p>
 		<p>Stats</p>
 		<p>Stats</p>
-		
+<div class="canvas-container">		
 <canvas id="line" class="chart chart-line" chart-data="data"
 chart-labels="labels" chart-series="series" chart-options="options" chart-click="onClick">
 </canvas>
-	<div>
+</div>
+</div>
+
 
 	
 	`,
