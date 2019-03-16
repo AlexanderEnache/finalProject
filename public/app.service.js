@@ -20,6 +20,13 @@ function Serv($http, $location, $interval){
     });
   }
   
+  self.getPrice = function(id){
+    return $http({
+      method:"GET",
+      url: `/getprice/${id}`
+    });
+  }
+  
   self.setFocusedBottle = function(Bottle){
 	  self.Bottle = Bottle;
   }
@@ -51,17 +58,18 @@ function Serv($http, $location, $interval){
   self.buy = function(bottle, quantity) {
     for (let i = 0; i < self.bought.length; i++) {
       if (self.bought[i].bottle.id == bottle.id) {
-		  console.log("Bought");
+		  //console.log("Bought");
         self.bought[i].quantity += quantity;
         self.credits -= self.bought[i].bottle.price * quantity;
         return;
       } 
     }
-	console.log("Bought");
+	//console.log("Bought");
     self.bought.push({bottle: bottle, quantity: quantity})
     console.log(bottle.price + " " + quantity)
     self.credits -= bottle.price * quantity;
   }
+  
   self.getBought = function() {
     return self.bought;
   }
@@ -98,7 +106,7 @@ function Serv($http, $location, $interval){
       }).then(function(res){
         // console.log(res.data[0].pricedate)
         self.str = res.data[0].pricedate + ',' + self.setPrice(Number(self.getLast(res.data[0].pricedate)));
-        self.price = Math.floor(Number(self.getLast(res.data[0].pricedate)));
+        //self.price = Number(self.getLast(res.data[0].pricedate));
         // console.log(self.str);
       });
       $http({
@@ -119,7 +127,9 @@ function Serv($http, $location, $interval){
   }
 
   self.setPrice = function(initPrice) {
-    return String(initPrice + initPrice/100);
+	  self.price = Math.floor((initPrice + initPrice/100)*100)/100;
+	  //console.log(self.price);
+      return String(self.price);
   }
 
   self.getLast = function(str) {
@@ -131,7 +141,7 @@ function Serv($http, $location, $interval){
      }
      st = str[i] + st;
    }
-   return st;
+   return st || "12";
   }
   
 self.refreshGraph = function(i) {
@@ -139,9 +149,9 @@ self.refreshGraph = function(i) {
     method:"GET",
     url: `/winesearch/` + i,
   }).then(function(res){
-    console.log(res.data[0].pricedate)
+    //console.log(res.data[0].pricedate)
     self.str = res.data[0].pricedate + ',' + self.setPrice(Number(self.getLast(res.data[0].pricedate)));
-    self.price = Math.floor(Number(self.getLast(res.data[0].pricedate)));
+    //self.price = Number(self.getLast(res.data[0].pricedate));
         // console.log(self.str);
         return res;
   });
@@ -149,3 +159,6 @@ self.refreshGraph = function(i) {
 }
 
 angular.module("WW").service("Serv", Serv);
+
+
+//update allofit set pricedate = '', price = 0;

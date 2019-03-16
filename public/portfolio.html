@@ -1,22 +1,26 @@
 <section class="price-graph-container">
-
-
     <div class="price-graph">
         <div class="price-graph-chooser">
-
-            
-
 
         </div>
         <p>PORTFOLIO</p>
     </div>
 </section>
 
-
+<div class="repeated-items" ng-click="$ctrl.select(item.bottle, $index)" ng-repeat="item in $ctrl.bought track by $index">
+        <img class="whiskey-listing-img" src = "{{item.bottle.image}}">
+        <focus-bottle bottle="$ctrl.bottle" ng-show="$ctrl.showArray[$index] == true"></focus-bottle>
+        <p ng-show="$ctrl.showArray[$index] == false">{{item.bottle.name}}</p>
+        <section class="buy-container">
+            <button ng-click="$ctrl.buy(item.bottle, quantity)">BUY</button>
+			<button ng-click="$ctrl.sell(item.bottle, quantity)">SELL</button>
+        	<input ng-model="quantity" type="number" placeholder="Quantity">
+        <hr>
+        </section>
+</div>
 		
-<div ng-click="$ctrl.select(bottle, $index)" ng-repeat="item in $ctrl.bought track by $index">
+<!-- <div ng-click="$ctrl.select(bottle, $index)" ng-repeat="item in $ctrl.bought track by $index">
     <focus-bottle bottle="$ctrl.bottle" ng-show="$ctrl.showArray[$index] == true"></focus-bottle>
-    <!-- <p ng-show="$ctrl.showArray[$index] == false">{{bottle.id}}</p> -->
     <p>{{item.bottle.id}}</p>
     <p>{{item.bottle.name}}</p>
     <p>Quantity: {{item.quantity}}</p>
@@ -28,4 +32,7 @@
 	
 	<wallet wallet="$ctrl.wallet"></wallet>
 
-</div>
+</div> -->
+
+<!-- <p ng-show="$ctrl.showArray[$index] == false">{{bottle.id}}</p> -->
+

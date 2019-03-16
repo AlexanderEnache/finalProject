@@ -31,7 +31,7 @@ const main = {
 		}
 
 		vm.select = function(bottle, index){
-			console.log("kappa")
+			
 			for(let i = 0; i < vm.showArray.length; i++){
 				vm.showArray[i] = false;
 			}
@@ -46,6 +46,7 @@ const main = {
 			}
 			
 		}
+		
 		vm.search = function(keyword) {
 			console.log(keyword)
 			Serv.search(keyword);

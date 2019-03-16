@@ -1,28 +1,51 @@
 "use strict";
 
-
 const portfolio = {
 	
 	templateUrl:"portfolio.html",
 	controller: ["Serv", function(Serv){
 		const vm = this;
 		
+		vm.showArray = [];
 		vm.wallet = Serv.getCredits();
-		console.log(vm.wallet);
-		
+		//console.log(vm.wallet);
 		vm.bought = Serv.getBought();
-		console.log(vm.bought);
-
+		//console.log(vm.bought);
+		for(let i = 0; i < vm.bought.length; i++){
+			vm.showArray.push(false);
+		}
+		
 		vm.buy = function(id, quantity) {
 			Serv.buy(id, quantity);
 			vm.wallet = Serv.getCredits()
 		};
 		
 		vm.sell = function(bottle, quantity) {
-			Serv.sell(bottle, quantity)
-			vm.wallet = Serv.getCredits()
-			console.log(vm.wallet)
+			Serv.getPrice(bottle.id).then(function(res){
+				bottle.price = res.data[0].price;
+				console.log(bottle.price);
+				Serv.sell(bottle, quantity);
+				vm.wallet = Serv.getCredits();
+				//console.log(vm.wallet);
+			})
 		}
+		
+		vm.select = function(bottle, index){
+			for(let i = 0; i < vm.showArray.length; i++){
+				vm.showArray[i] = false;
+			}
+
+			vm.showArray[index] = true;
+
+			if(bottle){
+				vm.show = true;
+				vm.bottle = bottle;
+			}else{
+				vm.show = false;
+			}
+			
+		}
+		
 	}]
 	
 };

@@ -16,14 +16,11 @@ const focusBottle = {
 		<p>Stats</p>
 		<p>Stats</p>
 		<p>Stats</p>
-<div class="canvas-container">		
-<canvas id="line" class="chart chart-line" chart-data="data"
-chart-labels="labels" chart-series="series" chart-options="options" chart-click="onClick">
-</canvas>
+	<div class="canvas-container">		
+	<canvas id="line" class="chart chart-line" chart-data="data"chart-labels="labels" chart-series="series" chart-options="options" chart-click="onClick">
+	</canvas>
+	</div>
 </div>
-</div>
-
-
 	
 	`,
 
@@ -48,23 +45,21 @@ chart-labels="labels" chart-series="series" chart-options="options" chart-click=
 		vm.dataArray = [];
 		vm.labelArray= [];
 			Serv.refreshGraph(79).then(function (res) {
-				console.log(res.data)
+				//console.log(res.data)
 				let st = "";
 				for (let i = 0; i < res.data[0].pricedate.length; i++) {
 					if (res.data[0].pricedate[i] == ",") {
 						vm.dataArray.push(Number(st));
 						st = "";
-						vm.labelArray.push("feb");
+						vm.labelArray.push("time");
 						$scope.labels = vm.labelArray;
 						$scope.data = [ vm.dataArray ];
-						console.log(res.data[0].pricedate)
-						console.log(vm.dataArray);
+						//console.log(res.data[0].pricedate)
+						//console.log(vm.dataArray);
 					}else{
 						st = st + res.data[0].pricedate[i];
 					}
 				}
-
-
 			})
 		}
 
