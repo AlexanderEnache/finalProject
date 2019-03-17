@@ -106,7 +106,7 @@ function Serv($http, $location, $interval){
         url: `/winesearch/` + i,
       }).then(function(res){
         // console.log(res.data[0].pricedate)
-        self.str = res.data[0].pricedate + ',' + self.setPrice(Number(self.getLast(res.data[0].pricedate)));
+        self.str = res.data[0].pricedate + ',' + self.setPrice(Number(self.getLast(res.data[0].pricedate)), self.getFirst(res.data[0].pricedate));
         //self.price = Number(self.getLast(res.data[0].pricedate));
         // console.log(self.str);
       });
@@ -127,11 +127,27 @@ function Serv($http, $location, $interval){
     }
   }
 
-  self.setPrice = function(initPrice) {
-	  self.price = Math.floor((initPrice + initPrice/100)*100)/100;
-	  //console.log(self.price);
+  self.setPrice = function(initPrice, firstPrice) {
+	  
+	  //console.log(Math.floor(Math.random()*3)-1);
+	  if(initPrice > firstPrice){
+		 self.price = Math.floor((initPrice + initPrice/ ((Math.random()*3)-1)/1000)*100)/100;
+	  }else if(){
+		  
+	  }
       return String(self.price);
   }
+  
+  self.getFirst = function(str) {
+	    let st = "";
+   		for(let i = 0; i < str.length; i++){
+     		if(str[i] == ","){
+     		  return st;
+    		}
+    	  st = st + str[i];
+   		}
+   		return st;
+	}
 
   self.getLast = function(str) {
     let st = "";
