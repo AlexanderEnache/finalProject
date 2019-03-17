@@ -94,7 +94,7 @@ function Serv($http, $location, $interval){
       } 
     }
   }
-  $interval(function(){self.callAtInterval()}, 5000);
+  //$interval(function(){self.callAtInterval()}, 5000);
   self.str= "";
 
   self.price;
