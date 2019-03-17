@@ -459,6 +459,11 @@ a {
   .marquee:hover {
       animation-play-state: paused
   }
+
+  .marquee:nth-child(odd) > img {
+    display: none;
+
+  }
   
   .img1 {
     display: flex;
@@ -472,6 +477,8 @@ a {
     margin:10px;
     float:left;
   }
+
+
   
   /* Make it move */
   @keyframes scroll { 
@@ -483,6 +490,10 @@ a {
          }
  }
 
+
+.arrow-up {
+    margin-left: 10px;
+}
 
 
 
