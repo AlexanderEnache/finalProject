@@ -12,7 +12,7 @@ const focusBottle = {
 	
 		<h4 class="text-align-h4">{{$ctrl.bottle.name}}</h4>
 		
-		<p>{{$ctrl.bottle.price | currency}}</p>
+		<p>{{$ctrl.price}}</p>
 		<p>Stats</p>
 		<p>Stats</p>
 		<p>Stats</p>
@@ -27,6 +27,7 @@ const focusBottle = {
 	controller: ["Serv", "$scope", "$interval", function (Serv, $scope, $interval) {
 
 		const vm = this;
+		vm.price = 0;
 		vm.dataArray = [];
 		vm.labelArray = [];
 		$scope.labels = ["January", "February", "March", "April", "May", "June", "July"];
@@ -60,6 +61,8 @@ const focusBottle = {
 						st = st + res.data[0].pricedate[i];
 					}
 				}
+				vm.price = vm.dataArray[vm.dataArray.length-1];
+				//console.log(vm.dataArray.length-1);
 			})
 		}
 
