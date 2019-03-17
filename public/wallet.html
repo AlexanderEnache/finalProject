@@ -1,9 +1,12 @@
 <section class="wallet-container">
 
-<div>
+    <div class="wallet-style">
+        <img class="wallet-img-style" ng-click="showDetails = ! showDetails" src="Assets/wallet.png" alt=""><p>Funds</p>
+        <div ng-show="showDetails"><p>: {{$ctrl.wallet | currency}}</p></div>
 
-    <p>{{$ctrl.wallet | currency}}</p>
-
-</div>
+    </div>
 
 </section>
+
+
+
