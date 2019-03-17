@@ -95,7 +95,8 @@ function Serv($http, $location, $interval){
     }
   }
   $interval(function(){self.callAtInterval()}, 5000);
-  self.str = "";
+  self.str= "";
+
   self.price;
   self.nextprice;
   self.callAtInterval = function($interval) {

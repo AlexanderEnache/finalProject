@@ -14,21 +14,45 @@ const portfolio = {
 		for(let i = 0; i < vm.bought.length; i++){
 			vm.showArray.push(false);
 		}
+
+		vm.wallet = Serv.getCredits()
+
 		
 		vm.buy = function(id, quantity) {
+			vm.boughtQ = quantity;
+			
 			Serv.buy(id, quantity);
 			vm.wallet = Serv.getCredits()
+			launch_toast2()
+
 		};
 		
 		vm.sell = function(bottle, quantity) {
+			vm.sold = quantity;
 			Serv.getPrice(bottle.id).then(function(res){
 				bottle.price = res.data[0].price;
 				console.log(bottle.price);
 				Serv.sell(bottle, quantity);
 				vm.wallet = Serv.getCredits();
+				launch_toast()
 				//console.log(vm.wallet);
 			})
-		}
+			
+		};
+
+
+
+			function launch_toast() {
+				const x = document.getElementById("toast")
+				x.className = "show";
+				setTimeout(function(){ x.className = x.className.replace("show", ""); }, 5000);
+		};
+
+		function launch_toast2() {
+			const x = document.getElementById("toast2")
+			x.className = "show";
+			setTimeout(function(){ x.className = x.className.replace("show", ""); }, 5000);
+	};
 		
 		vm.select = function(bottle, index){
 			for(let i = 0; i < vm.showArray.length; i++){
