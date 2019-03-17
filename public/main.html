@@ -1,41 +1,52 @@
-    
 <section class="header-bg-container">
     <img class="header-bg" src="Assets/wine-header-bg-455.png" alt="">
 </section>
 <section class="wine-search-bar">
-<form ng-submit="$ctrl.search(keyword)"><input type="text" ng-model="keyword"> <button>search</button></form>
-<div><button>filter</button></div>
+    <form ng-submit="$ctrl.search(keyword)"><input type="text" ng-model="keyword"> <button>search</button></form>
+    <div><button>filter</button></div>
 </section>
 
 
 <section class="price-graph-container">
 
 
-<div class="price-graph">
-    <div class="price-graph-chooser">
+    <div class="price-graph">
+        <div class="price-graph-chooser">
 
-        <button>Wine</button>
-        <button>Whiskey</button>
+            <button>Wine</button>
+            <button>Whiskey</button>
 
+        </div>
+        <p>PLACEHOLDER</p>
     </div>
-    <p>PLACEHOLDER</p>
-</div>
 </section>
 
 <section class="repeater-main">
-<div class="repeated-items" ng-click="$ctrl.select(bottle, $index)" ng-repeat="bottle in $ctrl.wine track by $index">
-    <img class="whiskey-listing-img" src = "{{bottle.image}}">
-    <focus-bottle bottle="$ctrl.bottle" ng-show="$ctrl.showArray[$index] == true"></focus-bottle>
-    <p ng-show="$ctrl.showArray[$index] == false">{{bottle.name}}</p>
-    <section class="buy-container">
-        <button ng-click="$ctrl.buy(bottle, quantity)">BUY</button>
-    <input ng-model="quantity" type="number" placeholder="Quantity">
-    <div id="toast"><div id="desc">{{$ctrl.quantity}} {{$ctrl.bottle.name}} Added to cellar</div></div>
-</div>
+    <div class="repeated-items" ng-click="$ctrl.select(bottle, $index)"
+        ng-repeat="bottle in $ctrl.wine track by $index">
+        <img class="whiskey-listing-img" src="{{bottle.image}}">
+        <focus-bottle bottle="$ctrl.bottle" ng-show="$ctrl.showArray[$index] == true"></focus-bottle>
+        <p ng-show="$ctrl.showArray[$index] == false">{{bottle.name}}</p>
+        <section class="buy-container">
+            <button ng-click="$ctrl.buy(bottle, quantity)">BUY</button>
+            <input ng-model="quantity" type="number" placeholder="Quantity">
+            <div id="toast">
+                <div id="desc">{{$ctrl.quantity}} {{$ctrl.bottle.name}} Added to cellar</div>
+            </div>
+    </div>
     <hr>
-    </section>
+</section>
 </div>
 </section>
 
 <button ng-click="$ctrl.load()">LOAD MORE</button>
 <wallet wallet="$ctrl.wallet"></wallet>
+<div class="ticker-container">
+
+    <section class="marquee">
+        <div ng-repeat="bottle in $ctrl.wine track by $index">
+            <div class="img1">{{bottle.name}}</div>
+        </div>
+
+    </section>
+</div>
