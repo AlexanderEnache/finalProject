@@ -10,14 +10,14 @@ const main = {
 		vm.wine = [];
 		vm.showArray = [];
 
-		Serv.getWine(10).then(function (res) {
+		Serv.getWine(20).then(function (res) {
 			vm.wine = res.data;
 			for (let i = 0; i < vm.wine.length; i++) {
 				vm.showArray.push(false);
 			}
 			// console.log(res);
 		});
-		vm.ooo = 10;
+		vm.ooo = 20;
 		vm.load = function () {
 
 			vm.ooo = vm.ooo + 5;
