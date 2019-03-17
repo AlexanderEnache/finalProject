@@ -45,7 +45,7 @@
 
     <section class="marquee">
         <div ng-repeat="bottle in $ctrl.wine track by $index">
-            <div class="img1">{{bottle.name}}</div>
+            <div class="img1">{{bottle.name}} {{bottle.price | currency}}</div>
         </div>
 
     </section>
