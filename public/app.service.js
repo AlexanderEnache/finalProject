@@ -110,20 +110,19 @@ function Serv($http, $location, $interval){
         // self.price = Number(self.getLast(res.data[0].pricedate));
         // console.log(self.str);
 		$http({
-        method:"PUT",
-        url: `/winesearch/` + i,
-        data: {newprice: self.str, price: self.price}
-      }).then(function(res){
+       	 method:"PUT",
+       	 url: `/winesearch/` + i,
+       	 data: {newprice: self.str, price: self.price}
+     	}).then(function(res){
         // console.log(self.str);
-       	console.log(res)
+     	});
       });
-      });
-      $http({
+     /*  $http({
         method:"GET",
         url: `/winesearch/` + i,
       }).then(function(res){
         // console.log(res.data[0].pricedate)
-      });
+      }); */
     }
   }
 

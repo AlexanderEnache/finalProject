@@ -45,7 +45,8 @@ const focusBottle = {
 		function callAtInterval() {
 		vm.dataArray = [];
 		vm.labelArray= [];
-			Serv.refreshGraph(79).then(function (res) {
+		//console.log(vm.bottle.id);
+			Serv.refreshGraph(vm.bottle.id).then(function (res) {
 				//console.log(res.data)
 				let st = "";
 				for (let i = 0; i < res.data[0].pricedate.length; i++) {
