@@ -102,3 +102,7 @@ const main = {
 }
 
 angular.module("WW").component("main", main);
+
+
+
+//create table noneofit(id serial, name varchar(200), category varchar(50), color varchar(50), price float, description varchar(500), year int, region varchar(100), abv int, image varchar(1000), quantity int, pricedate varchar(2000));

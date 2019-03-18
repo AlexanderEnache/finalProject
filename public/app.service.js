@@ -94,7 +94,7 @@ function Serv($http, $location, $interval){
       } 
     }
   }
-  //$interval(function(){self.callAtInterval()}, 5000);
+  $interval(function(){self.callAtInterval()}, 5000);
   self.str= "";
 
   self.price;
@@ -107,16 +107,16 @@ function Serv($http, $location, $interval){
       }).then(function(res){
         // console.log(res.data[0].pricedate)
         self.str = res.data[0].pricedate + ',' + self.setPrice(Number(self.getLast(res.data[0].pricedate)), self.getFirst(res.data[0].pricedate));
-        //self.price = Number(self.getLast(res.data[0].pricedate));
+        // self.price = Number(self.getLast(res.data[0].pricedate));
         // console.log(self.str);
-      });
-      $http({
+		$http({
         method:"PUT",
         url: `/winesearch/` + i,
         data: {newprice: self.str, price: self.price}
       }).then(function(res){
         // console.log(self.str);
-        //console.log(res)
+       	console.log(res)
+      });
       });
       $http({
         method:"GET",
