@@ -126,16 +126,19 @@ function Serv($http, $location, $interval){
     }
   }
 
-  self.setPrice = function(initPrice, firstPrice) {
+ self.setPrice = function(initPrice, firstPrice) {
 	  
 	  //console.log(Math.floor(Math.random()*3)-1);
-	  if(initPrice > firstPrice + (firstPrice * 1.11)){
-		 self.price = Math.floor((initPrice + initPrice/ ((Math.random()*2)-1)/500)*100)/100;
-	  }else if(initPrice < firstPrice + -1*(firstPrice * 1.11)){
-		 self.price = Math.floor((initPrice + initPrice/ ((Math.random()*2))/500)*100)/100;
-	  }
-	  else{
-		 self.price = Math.floor((initPrice + initPrice/ ((Math.random()*3)-1)/500)*100)/100;
+	  if(initPrice > firstPrice + (firstPrice / 3.2857)){
+		 self.price = Math.floor((initPrice - Math.random()*initPrice/200)*100)/100;
+	  }else if(initPrice < firstPrice - (firstPrice / 3.2857)){
+		 self.price = Math.floor((initPrice + Math.random()*initPrice/200)*100)/100;
+	  }else{
+		 if(Math.floor(Math.random()*2) == 1){
+			 self.price = Math.floor((initPrice - Math.random()*initPrice/200)*100)/100;
+		 }else{
+			 self.price = Math.floor((initPrice + Math.random()*initPrice/200)*100)/100;
+		 }
 	  }
       return String(self.price);
   }
