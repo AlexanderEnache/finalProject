@@ -1,26 +1,69 @@
 <p class="header-wine">Wine</p>
 
 
-		
-<section class="wine-listings-container">
+<!-- <section class="flex-wine">
 
-    <div class="bottle-listing" ng-repeat = "bottle in $ctrl.wine">
-        <p>{{bottle.name}}</p>
-        <p>{{bottle.price | currency}}</p>
+    <section class="repeater-main2">
 
-        <section class="wine-buy-container">
+        <div class="repeated-items2" ng-repeat="bottle in $ctrl.wine">
+            <img class="wine-listing-img" src="{{bottle.image}}">
+            <p>{{bottle.name}}</p>
+            <section class="buy-container">
+                <p>{{bottle.price | currency}}</p>
 
-            <button ng-click="$ctrl.buy(bottle, quantity)">BUY</button>
-            <input ng-model="quantity" type="number">
+                <button ng-click="$ctrl.buy(bottle, quantity)">BUY</button>
+                <input ng-model="quantity" type="number">
 
-        </section>
-        <img class="wine-listing-img" src = "{{bottle.image}}">
+            </section>
 
-       
-        
-    </div>
 
-</section>
+            <hr>
+
+
+        </div>
+    </section>
+
+</section> -->
+
+
+
+
+
+
+
+
+
+<section class="repeater-main">
+        <div class="repeated-items" ng-click="$ctrl.select(bottle, $index)"
+            ng-repeat="bottle in $ctrl.wine track by $index">
+            <img class="whiskey-listing-img" src="{{bottle.image}}">
+            <focus-bottle bottle="$ctrl.bottle" ng-show="$ctrl.showArray[$index] == true"></focus-bottle>
+            <p ng-show="$ctrl.showArray[$index] == false">{{bottle.name}}</p>
+            <section class="buy-container">
+                <button ng-click="$ctrl.buy(bottle, quantity)">BUY</button>
+                <input ng-model="quantity" type="number" placeholder="Quantity">
+                <div id="toast">
+                    <div id="desc">{{$ctrl.quantity}} {{$ctrl.bottle.name}} Added to cellar</div>
+                </div>
+        </div>
+        <hr>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <button ng-click="$ctrl.load()">LOAD MORE</button>
 
 <wallet wallet="$ctrl.wallet"></wallet>

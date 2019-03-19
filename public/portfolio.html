@@ -1,33 +1,44 @@
-<section class="price-graph-container">
-    <div class="price-graph">
-        <div class="price-graph-chooser">
-
-        </div>
-        <p>PORTFOLIO</p>
-    </div>
+<section class="header-bg-container">
+    <img class="header-bg" src="Assets/portfolio-header-hg.png" alt="">
+    <p class="port-title">Portfolio</p>
 </section>
 
-<div class="repeated-items" ng-click="$ctrl.select(item.bottle, $index)" ng-repeat="item in $ctrl.bought track by $index">
-        <img class="whiskey-listing-img" src = "{{item.bottle.image}}">
-        <focus-bottle bottle="$ctrl.bottle" ng-show="$ctrl.showArray[$index] == true"></focus-bottle>
-        <p ng-show="$ctrl.showArray[$index] == false">{{item.bottle.name}}</p>
-        <section class="buy-container">
-            <p>Quantity: {{$ctrl.bought[$index].quantity}}</p>
-            <button ng-click="$ctrl.buy(item.bottle, quantity)">BUY</button>
-			<button ng-click="$ctrl.sell(item.bottle, quantity)">SELL</button>
-            <input ng-model="quantity" type="number" placeholder="Quantity">
-            <div id="toast"><div id="desc">{{$ctrl.sold}} {{$ctrl.bottle.name}} Sold from Cellar</div></div>
-            <div id="toast2"><div id="desc">{{$ctrl.boughtQ}} {{$ctrl.bottle.name}} Added to Cellar</div></div>
+
+
+<div class="repeated-items" ng-click="$ctrl.select(item.bottle, $index)"
+    ng-repeat="item in $ctrl.bought track by $index">
+    <img class="whiskey-listing-img" src="{{item.bottle.image}}">
+    <focus-bottle bottle="$ctrl.bottle" liveprice="$ctrl.liveprice(price)" ng-show="$ctrl.showArray[$index] == true">
+    </focus-bottle>
+    <p class="portfolio-price" ng-show="$ctrl.showArray[$index] == false">{{item.bottle.name}}</p>
+    <section class="buy-container">
+        <p class="big-font">Total Invested: {{$ctrl.bought[$index].quantity * $ctrl.Lprice | currency}} <img
+                src="Assets/icons8-sort-down-30.png" class="arrow-port" ng-show="$ctrl.showNeg">
+                <img src="Assets/icons8-sort-up-30.png" ng-show="$ctrl.showPos"
+                class="arrow-port">
+
+        </p>
+
+        <p class="big-font">Initial Investment: {{ $ctrl.bought[$index].quantity * item.bottle.price | currency}}</p>
+        <p class="big-font">Quantity: {{$ctrl.bought[$index].quantity}}</p>
+        <button ng-click="$ctrl.buy(item.bottle, quantity)">BUY</button>
+        <button ng-click="$ctrl.sell(item.bottle, quantity)">SELL</button>
+        <input ng-model="quantity" type="number" placeholder="Quantity">
+        <div id="toast">
+            <div id="desc">{{$ctrl.sold}} {{$ctrl.bottle.name}} Sold from Cellar</div>
         </div>
-        <hr>
-        </section>
+        <div id="toast2">
+            <div id="desc">{{$ctrl.boughtQ}} {{$ctrl.bottle.name}} Added to Cellar</div>
+        </div>
 </div>
-<br>
+<hr>
+</section>
+</div>
 <br>
 <br>
 <wallet wallet="$ctrl.wallet"></wallet>
 
-		
+
 <!-- <div ng-click="$ctrl.select(bottle, $index)" ng-repeat="item in $ctrl.bought track by $index">
     <focus-bottle bottle="$ctrl.bottle" ng-show="$ctrl.showArray[$index] == true"></focus-bottle>
     <p>{{item.bottle.id}}</p>
@@ -44,4 +55,3 @@
 </div> -->
 
 <!-- <p ng-show="$ctrl.showArray[$index] == false">{{bottle.id}}</p> -->
-

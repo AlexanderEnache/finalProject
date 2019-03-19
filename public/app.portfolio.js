@@ -69,6 +69,25 @@ const portfolio = {
 			}
 			
 		}
+		// vm.showNeg = false;
+		// vm.showPos = false;
+
+		vm.liveprice = function(price) {
+			vm.Lprice = price;
+			console.log(price + "log");
+			if ( vm.bottle.price > vm.Lprice ) {
+				console.log("negative")
+				vm.showNeg = true
+				vm.showPos = false;
+
+			}
+			else if (vm.bottle.price < vm.Lprice) {
+				vm.showPos = true;
+				vm.showNeg = false;
+				console.log("positive")
+
+			}
+		} 
 		
 	}]
 	

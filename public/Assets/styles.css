@@ -60,6 +60,12 @@ nav {
 }
 
 
+.loadmore-style {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 70px;
+}
 
 
 a {
@@ -221,6 +227,65 @@ a {
     margin-bottom: 30px;
     margin-top: 30px;
 }
+
+.repeated-items2 {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.repeated-items2 hr {
+    height: 1px;
+    color: rgba(0,0,0,.5);
+    background-color: rgba(0,0,0,.5);
+    border: none;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+
+
+.main-about-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Cardo;
+    font-size: 2.5em
+}
+
+
+
+/* ======PORTFOLIO====== */
+
+.portfolio-price {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.big-font {
+    font-size: 1.5em;
+}
+
+
+.port-title {
+    /* position: absolute; */
+    font-size: 3em;
+    font-family: Cardo;
+    top: 25%;
+    font-weight: bold;
+    width: 99%;
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
 /* ===== TOAST 1 */
 #toast {
     visibility: hidden;
@@ -497,6 +562,7 @@ a {
 
 
 
+
 /* ==================================== */
 
 @media only screen and (min-width: 480px) {
@@ -509,6 +575,7 @@ a {
         flex-direction: column;
         align-items: center;
         height: auto;
+        width: 100%;
     }
     .repeater-main {
         display: flex;
@@ -533,6 +600,38 @@ a {
     .repeated-items hr {
 display: none;
     }
+    .flex-wine {
+        display: flex;
+        align-items: center;
+        justify-content: center
+    }
+    .repeater-main2 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 70%;
+
+    }
+    .repeated-items2 {
+        display: flex;
+        flex-direction: row;
+        width: 90%;
+        justify-content: space-between;
+        margin-bottom: 40px;
+    }
+
+    .repeated-items2 p {
+        display: flex;
+        flex-direction: row;
+        /* width: 75%; */
+        /* justify-content: flex-start; */
+    }
+    .repeated-items2 hr {
+display: none;
+    }
+
+
+
     .text-align-h4 {
         display: flex;
         flex-direction: row;

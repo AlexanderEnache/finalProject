@@ -3,7 +3,8 @@
 const focusBottle = {
 
 	bindings: {
-		bottle: "<"
+		bottle: "<",
+		liveprice: "&"
 	},
 
 	template: `
@@ -64,6 +65,7 @@ const focusBottle = {
 					}
 				}
 				vm.price = vm.dataArray[vm.dataArray.length-1];
+				vm.liveprice({price: vm.price})
 				//console.log(vm.dataArray.length-1);
 			})
 		}
