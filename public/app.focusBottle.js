@@ -32,6 +32,7 @@ const focusBottle = {
 		vm.price = 0;
 		vm.dataArray = [];
 		vm.labelArray = [];
+		let d = new Date();
 		$scope.labels = ["January", "February", "March", "April", "May", "June", "July"];
 		$scope.series = 'Series B';
 		$scope.data = [
@@ -55,19 +56,27 @@ const focusBottle = {
 					if (res.data[0].pricedate[i] == ",") {
 						vm.dataArray.push(Number(st));
 						st = "";
-						vm.labelArray.push("time");
-						$scope.labels = vm.labelArray;
+						//vm.labelArray.push("time");
+						vm.labelArray = [];
+						for(let i = vm.dataArray.length - 1; i >= 0; i--){
+							d = new Date();
+							d.setTime(d.getTime() - 1000*i);
+							vm.labelArray.push(d.getMinutes()+":"+d.getSeconds());
+						}
+						//$scope.labels = vm.labelArray;
 						$scope.data = [ vm.dataArray ];
 						//console.log(res.data[0].pricedate)
 						//console.log(vm.dataArray);
 					}else{
 						st = st + res.data[0].pricedate[i];
 					}
+					$scope.labels = vm.labelArray;
+					//console.log($scope.labels);
 				}
 				vm.price = vm.dataArray[vm.dataArray.length-1];
 				vm.liveprice({price: vm.price})
 
-
+				//d.setTime(d.getTime() - 1000*i); vm.labelArray.push(d.toString());
 				//console.log(vm.dataArray.length-1);
 			})
 		}

@@ -4,7 +4,6 @@ const pg = require("pg");
 const url = require("url");
 try {
 require("dotenv").config();
-console.log("dfghj");
 } catch (e) {
 console.log(e);
 }

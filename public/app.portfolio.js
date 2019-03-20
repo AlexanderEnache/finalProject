@@ -42,10 +42,10 @@ const portfolio = {
 
 
 
-			function launch_toast() {
-				const x = document.getElementById("toast")
-				x.className = "show";
-				setTimeout(function(){ x.className = x.className.replace("show", ""); }, 5000);
+		function launch_toast() {
+			const x = document.getElementById("toast")
+			x.className = "show";
+			setTimeout(function(){ x.className = x.className.replace("show", ""); }, 5000);
 		};
 
 		function launch_toast2() {
