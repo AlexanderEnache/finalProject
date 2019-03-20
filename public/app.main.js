@@ -10,7 +10,7 @@ const main = {
 		vm.wine = [];
 		vm.showArray = [];
 
-		Serv.getWine(20).then(function (res) {
+		Serv.getSpirit(20).then(function (res) {
 			vm.wine = res.data;
 			for (let i = 0; i < vm.wine.length; i++) {
 				vm.showArray.push(false);

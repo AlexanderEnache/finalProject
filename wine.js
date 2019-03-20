@@ -12,6 +12,14 @@ wine.get("/wine/:loadmore", function (req, res) {
   });
 });
 
+wine.get("/spirit/:loadmore", function (req, res) {
+  console.log(req.params.loadmore + "fgh")
+  pool.query(`select * from noneofit limit ${req.params.loadmore}`).then(function(result) {
+	console.log(result);
+    res.send(result.rows);
+  });
+});
+
 wine.get("/mainsearch/:searchterm", function (req, res) {
   pool.query("select * from noneofit where name like '%"+req.params.searchterm+"%' ").then(function(result) {
 	console.log(result);

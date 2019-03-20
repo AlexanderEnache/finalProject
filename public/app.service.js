@@ -13,6 +13,14 @@ function Serv($http, $location, $interval){
     });
   }
   
+  self.getSpirit = function(loadmore){
+    console.log(loadmore)
+    return $http({
+      method:"GET",
+      url: `/spirit/${loadmore}`
+    });
+  }
+  
    self.getWiskey = function(loadmore){
     return $http({
       method:"GET",
