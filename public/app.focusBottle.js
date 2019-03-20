@@ -13,7 +13,7 @@ const focusBottle = {
 	
 		<h4 class="text-align-h4">{{$ctrl.bottle.name}}</h4>
 		
-		<p>{{$ctrl.price}}</p>
+		<p>{{$ctrl.price | currency}}</p>
 		<p>{{$ctrl.bottle.type}}</p>
 		<p>{{$ctrl.bottle.region}}</p>
 		<p>{{$ctrl.bottle.description}}</p>
