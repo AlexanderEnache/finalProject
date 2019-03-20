@@ -16,9 +16,11 @@ const portfolio = {
 		}
 
 		vm.wallet = Serv.getCredits()
-
 		
 		vm.buy = function(id, quantity) {
+			if(!quantity){
+				return;
+			}
 			vm.boughtQ = quantity;
 			
 			Serv.buy(id, quantity);
@@ -74,6 +76,7 @@ const portfolio = {
 
 		vm.liveprice = function(price) {
 			vm.Lprice = price;
+			// vm.Lid = id;
 			console.log(price + "log");
 			if ( vm.bottle.price > vm.Lprice ) {
 				console.log("negative")

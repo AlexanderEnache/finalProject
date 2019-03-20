@@ -12,7 +12,7 @@
     </focus-bottle>
     <p class="portfolio-price" ng-show="$ctrl.showArray[$index] == false">{{item.bottle.name}}</p>
     <section class="buy-container">
-        <p class="big-font">Total Invested: {{$ctrl.bought[$index].quantity * $ctrl.Lprice | currency}} <img
+        <p ng-show="$ctrl.Lprice" class="big-font">{{$ctrl.Lid}} Market Value: {{$ctrl.bought[$index].quantity * $ctrl.Lprice | currency}} <img
                 src="Assets/icons8-sort-down-30.png" class="arrow-port" ng-show="$ctrl.showNeg">
                 <img src="Assets/icons8-sort-up-30.png" ng-show="$ctrl.showPos"
                 class="arrow-port">

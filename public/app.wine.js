@@ -58,6 +58,9 @@ const wine = {
 		vm.wallet = Serv.getCredits();
 
 		vm.buy = function (id, quantity) {
+			if(!quantity){
+				return;
+			}
 			vm.quantity = quantity;
 			Serv.buy(id, quantity);
 			vm.wallet = Serv.getCredits();

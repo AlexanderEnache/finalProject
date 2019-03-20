@@ -48,9 +48,11 @@ const focusBottle = {
 		function callAtInterval() {
 		vm.dataArray = [];
 		vm.labelArray= [];
-		//console.log(vm.bottle.id);
+		
+		if(vm.bottle.id){
+			console.log(vm.bottle.id);
 			Serv.refreshGraph(vm.bottle.id).then(function (res) {
-				//console.log(res.data)
+				console.log(vm.bottle);
 				let st = "";
 				for (let i = 0; i < res.data[0].pricedate.length; i++) {
 					if (res.data[0].pricedate[i] == ",") {
@@ -74,11 +76,12 @@ const focusBottle = {
 					//console.log($scope.labels);
 				}
 				vm.price = vm.dataArray[vm.dataArray.length-1];
-				vm.liveprice({price: vm.price})
+				vm.liveprice({price: vm.price, id: vm.bottle.id})
 
 				//d.setTime(d.getTime() - 1000*i); vm.labelArray.push(d.toString());
 				//console.log(vm.dataArray.length-1);
 			})
+			}
 		}
 
 		/* $interval(callAtInterval, 500);
