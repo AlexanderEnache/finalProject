@@ -102,7 +102,7 @@ function Serv($http, $location, $interval){
       } 
     }
   }
-  $interval(function(){self.callAtInterval()}, 10000);
+ // $interval(function(){self.callAtInterval()}, 10000);
   self.str= "";
 
   self.price;

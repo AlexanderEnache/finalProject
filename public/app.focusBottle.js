@@ -36,7 +36,7 @@ const focusBottle = {
 		$scope.labels = ["January", "February", "March", "April", "May", "June", "July"];
 		$scope.series = 'Series B';
 		$scope.data = [
-			[28, 48, 40, 19, 86, 27, 69]
+			[0]
 		];
 		$scope.options = {
 			animation: {
@@ -49,7 +49,7 @@ const focusBottle = {
 		vm.dataArray = [];
 		vm.labelArray= [];
 		
-		if(vm.bottle.id){
+		try{
 			console.log(vm.bottle.id);
 			Serv.refreshGraph(vm.bottle.id).then(function (res) {
 				console.log(vm.bottle);
@@ -81,6 +81,8 @@ const focusBottle = {
 				//d.setTime(d.getTime() - 1000*i); vm.labelArray.push(d.toString());
 				//console.log(vm.dataArray.length-1);
 			})
+			}catch(er){
+				console.log(er);
 			}
 		}
 
