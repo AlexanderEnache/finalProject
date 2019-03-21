@@ -28,7 +28,7 @@
             <p ng-show="$ctrl.showArray[$index] == false">{{bottle.name}}</p>
             <section class="buy-container">
                 <button ng-click="$ctrl.buy(bottle, quantity)">BUY</button>
-                <input ng-model="quantity" type="number" placeholder="Quantity">
+                <input ng-model="quantity" min="1" type="number" placeholder="Quantity">
                 <div id="toast">
                     <div id="desc">{{$ctrl.quantity}} {{$ctrl.bottle.name}} Added to cellar</div>
                 </div>

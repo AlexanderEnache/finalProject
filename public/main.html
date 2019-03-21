@@ -18,7 +18,7 @@
 
 
 <section class="wine-search-bar">
-    <form ng-submit="$ctrl.search(keyword)"><input type="text" ng-model="keyword"> <button>search</button></form>
+    <form ng-submit="$ctrl.search(keyword)"><input type="text" min="1" ng-model="keyword"> <button>search</button></form>
     <!-- <div><button>filter</button></div> -->
 </section>
 
@@ -39,7 +39,7 @@
         <p ng-show="$ctrl.showArray[$index] == false">{{bottle.name}}</p>
         <section class="buy-container">
             <button ng-click="$ctrl.buy(bottle, quantity)">BUY</button>
-            <input ng-model="quantity" type="number" placeholder="Quantity">
+            <input ng-model="quantity" type="number" min="1" placeholder="Quantity">
             <div id="toast">
                 <div id="desc">{{$ctrl.quantity}} {{$ctrl.bottle.name}} Added to portfolio</div>
             </div>

@@ -23,7 +23,7 @@
         <p class="big-font">Quantity: {{$ctrl.bought[$index].quantity}}</p>
         <button ng-click="$ctrl.buy(item.bottle, quantity)">BUY</button>
         <button ng-click="$ctrl.sell(item.bottle, quantity)">SELL</button>
-        <input ng-model="quantity" type="number" placeholder="Quantity">
+        <input ng-model="quantity" type="number" min="1" placeholder="Quantity">
         <div id="toast">
             <div id="desc">{{$ctrl.sold}} {{$ctrl.bottle.name}} Sold from Cellar</div>
         </div>
