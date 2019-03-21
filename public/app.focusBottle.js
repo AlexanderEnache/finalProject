@@ -44,7 +44,7 @@ const focusBottle = {
   			}
 		}
 
-		$interval(callAtInterval, 10000);
+		$interval(callAtInterval, 5000);
 		function callAtInterval() {
 		vm.dataArray = [];
 		vm.labelArray= [];
