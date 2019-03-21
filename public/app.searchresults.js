@@ -69,7 +69,6 @@ const searchresults = {
 			Serv.buy(id, quantity)
 		};
         
-
     }]
 
 }

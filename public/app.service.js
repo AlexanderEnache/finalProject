@@ -102,13 +102,13 @@ function Serv($http, $location, $interval){
       } 
     }
   }
-  $interval(function(){self.callAtInterval()}, 5000);
+  $interval(function(){self.callAtInterval()}, 10000);
   self.str= "";
 
   self.price;
   self.nextprice;
   self.callAtInterval = function($interval) {
-    for (let i = 1; i <= 80; i++) {
+    for (let i = 1; i <= 65; i++) {
       $http({
         method:"GET",
         url: `/winesearch/` + i,
