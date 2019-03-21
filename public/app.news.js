@@ -1,13 +1,9 @@
 "use strict";
 
-const news = {
+const about = {
 	
-	template: `
-	
-		<h2>news</h2>
-	
-	`
+	templateUrl: `about.html`
 	
 }
 
-angular.module("WW").component("news", news);
+angular.module("WW").component("about", about);

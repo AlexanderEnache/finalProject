@@ -4,6 +4,25 @@ html {
     font-size: 1.25em;
 }
 
+
+.about-container {
+    position: relative;
+    top: 70px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.about-text {
+    width: 37%;
+    margin-bottom: 50px;
+}
+
+.about-img {
+    margin-bottom: 50px;
+}
+
 .text-align-h4 {
     text-align: center;
 }

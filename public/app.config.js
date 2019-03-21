@@ -7,7 +7,7 @@ angular.module("WW").config(["$routeProvider", function($routeProvider){
 	.when("/wiskey", {template: "<wiskey></wiskey>"})
 	.when("/wine", {template: "<wine></wine>"})
 	.when("/portfolio",  {template: "<portfolio></portfolio>"})
-	.when("/news", {template: "<news></news>"})
+	.when("/about", {template: "<about></about>"})
 	.when("/searchresults", {template: "<searchresults></searchresults>"})
 	.otherwise({redirectTo: "/main"});
 	
