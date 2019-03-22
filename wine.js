@@ -21,7 +21,7 @@ wine.get("/spirit/:loadmore", function (req, res) {
 });
 
 wine.get("/mainsearch/:searchterm", function (req, res) {
-  pool.query("select * from noneofit where name like '%"+req.params.searchterm+"%' ").then(function(result) {
+  pool.query("select * from noneofit where lower(name) like '%"+req.params.searchterm.toLowerCase()+"%' ").then(function(result) {
 	console.log(result);
     res.send(result.rows);
   });
